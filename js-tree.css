@@ -4,6 +4,7 @@ body{
 #tree,.left,.right,.root{
   display:inline-block;
   border:1px solid #666;
+  background-color:white;
 }
 #tree,.left,.right{
   padding:10px;
