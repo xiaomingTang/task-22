@@ -82,7 +82,7 @@ FullBinTree.prototype={
   },
   //所有遍历
   traversal:function(elem){
-    this.NRL(elem);
+    this.NLR(elem);
     this.LNR(elem);
     this.LRN(elem);
   },
