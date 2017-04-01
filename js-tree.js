@@ -29,10 +29,23 @@ FullBinTree.prototype={
       right.className+=" root";
     }
   },
+  convertToArray:function(nodes){
+    var arr=[];
+    try{
+      arr=Array.prototype.slice.call(nodes,0);
+    }catch(ex){
+      arr=[];
+      for(var i=0,len=nodes.length;i<len;i++){
+        arr.push(nodes[i]);
+      }
+    }
+    return arr;
+  },
   
   getElementChild:function(elem){
     var arr=[],
-        child=elem.childNodes;
+        child=this.convertToArray(elem.childNodes);
+    console.log(child);
     for(var i=child.length-1;i--;){
       if(child[i].nodeType == 1){
          arr.unshift(child[i]);
