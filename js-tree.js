@@ -123,7 +123,7 @@ FullBinTree.prototype={
     loop=setInterval(function(){
       arr[i-1].style.backgroundColor="white";
       arr[i].style.backgroundColor="red";
-      if(i >= len){
+      if(i++ >= len){
         clearInterval(loop);
       }
     },500);
