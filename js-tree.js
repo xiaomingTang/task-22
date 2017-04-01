@@ -145,7 +145,9 @@ newTree.traversal(tree);
 
 newTree.render(1);
 
-
+console.log(newTree.arr_NLR);
+console.log(newTree.arr_LNR);
+console.log(newTree.arr_LRN);
 
 
 
