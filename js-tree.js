@@ -2,10 +2,10 @@
 function FullBinTree(n){
   this.gene=n;
   this.frag=document.createDocumentFragment();
-  function init(){
+  (function init(){
     this.buildTree(this.frag,this.gene);
     return this.frag;
-  }();
+  })();
 }
 FullBinTree.prototype={
   constructor:FullBinTree,
