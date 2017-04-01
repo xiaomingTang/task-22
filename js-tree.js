@@ -15,9 +15,15 @@ FullBinTree.prototype={
         right=this.newElem();
     elem.appendChild(left);
     elem.appendChild(right);
-    if(n--){
+    left.className="left";
+    right.className="right";
+    if(--n){
       this.buildTree(left,n);
       this.buildTree(right,n);
+    }
+    else{
+      left.className="root";
+      right.className="root";
     }
   },
       
