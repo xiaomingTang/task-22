@@ -3,7 +3,7 @@ function FullBinTree(n){
   this.gene=n;
   this.frag=document.createDocumentFragment();
   this.init=function(){
-    this.prototype.buildTree(this.frag,this.gene);
+    this.buildTree(this.frag,this.gene);
     return this.frag;
   };
 }
@@ -27,4 +27,6 @@ FullBinTree.prototype={
   }
 }
 
-document.body.appendChild(new FullBinTree(4).init());
+var newTree=new FullBinTree(4);
+
+document.body.appendChild(newTree.init());
