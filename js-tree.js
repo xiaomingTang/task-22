@@ -22,8 +22,8 @@ FullBinTree.prototype={
       this.buildTree(right,n);
     }
     else{
-      left.className="root";
-      right.className="root";
+      left.className+=" root";
+      right.className+=" root";
     }
   },
       
