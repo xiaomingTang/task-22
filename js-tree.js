@@ -29,4 +29,4 @@ FullBinTree.prototype={
 
 var newTree=new FullBinTree(4);
 
-document.body.appendChild(newTree.init());
+document.getElementById("tree").appendChild(newTree.init());
