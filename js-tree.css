@@ -1,5 +1,6 @@
 .left,.right,.root{
   display:inline-block;
+  border:1px solid #666;
 }
 .left,.right{
   padding:10px;
@@ -7,5 +8,4 @@
 .root{
   width:20px;
   height:20px;
-  border:1px solid #666;
 }
