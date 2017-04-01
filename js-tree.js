@@ -45,10 +45,9 @@ FullBinTree.prototype={
   getElementChild:function(elem){
     var arr=[],
         child=this.convertToArray(elem.childNodes);
-    console.log(child);
-    for(var i=child.length-1;i--;){
+    for(var i=0,len=child.length;i<len;i++){
       if(child[i].nodeType == 1){
-         arr.unshift(child[i]);
+         arr.push(child[i]);
       }
     }
     return arr;
