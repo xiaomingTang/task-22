@@ -3,7 +3,7 @@ function FullBinTree(n){
   this.gene=n;
   this.frag=document.createDocumentFragment();
   (function init(){
-    this.buildTree(this.frag,this.gene);
+    this.prototype.buildTree(this.frag,this.gene);
     return this.frag;
   })();
 }
