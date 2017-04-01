@@ -2,6 +2,9 @@
 function FullBinTree(n){
   this.gene=n;
   this.frag=document.createDocumentFragment();
+  this.arr_NLR=[];
+  this.arr_LNR=[];
+  this.arr_LRN=[];
   this.init=function(){
     this.buildTree(this.frag,this.gene);
     return this.frag;
@@ -26,13 +29,116 @@ FullBinTree.prototype={
       right.className+=" root";
     }
   },
-      
+  
+  getElementChild:function(elem){
+    var arr=[],
+        child=elem.childNodes;
+    for(var i=child.length-1;i--;){
+      if(child[i].nodeType == 1){
+         arr.unshift(child[i]);
+      }
+    }
+    return arr;
+  },
+  //前序遍历
+  NLR:function(elem){
+    this.arr_NLR.push(elem);
+    var arr=this.getElementChild(elem);
+    if(!!arr.length){
+      var left=this.getElementChild(elem)[0],
+          right=this.getElementChild(elem)[1];
+      this.NLR(left);
+      this.NLR(right);
+    }
+  },
+  //中序遍历
+  LNR:function(elem){
+    var arr=this.getElementChild(elem);
+    if(!!arr.length){
+      var left=this.getElementChild(elem)[0],
+          right=this.getElementChild(elem)[1];
+      this.LNR(left);
+      this.arr_LNR.push(elem);
+      this.LNR(right);
+    }
+    else{
+      this.arr_LNR.push(elem);
+    }
+  },
+  
+  //后序遍历
+  LRN:function(elem){
+    var arr=this.getElementChild(elem);
+    if(!!arr.length){
+      var left=this.getElementChild(elem)[0],
+          right=this.getElementChild(elem)[1];
+      this.LRN(right);
+      this.arr_LRN.push(elem);
+      this.LRN(left);
+    }
+    else{
+      this.arr_LRN.push(elem);
+    }
+  },
+  //所有遍历
+  traversal:function(elem){
+    this.NRL(elem);
+    this.LNR(elem);
+    this.LRN(elem);
+  },
+  render:function(type){
+    var arr=[];
+    switch(type){
+      case 0:
+        arr=this.arr_NRL;
+        break;
+      case 1:
+        arr=this.arr_LNR;
+        break;
+      case 2:
+        arr=this.arr_LRN;
+        break;
+      default:
+        break;
+    }
+    if(!arr.length){
+      return ;
+    }
+    arr[0].style.backgroundColor="red";
+    
+    var i=1,
+        len=arr.length,
+    loop=setInterval(function(){
+      arr[i-1].style.backgroundColor="transparent";
+      arr[i].style.backgroundColor="red";
+      if(i >= len){
+        clearInterval(loop);
+      }
+    },500);
+  },
+  
+  
 
   newElem:function(){
     return document.createElement("div");
   }
 }
 
-var newTree=new FullBinTree(4);
+var newTree=new FullBinTree(4),
+    tree=document.getElementById("tree");
 
-document.getElementById("tree").appendChild(newTree.init());
+tree.appendChild(newTree.init());
+
+newTree.traversal(tree);
+
+newTree.render(1);
+
+
+
+
+
+
+
+
+
+
