@@ -1,12 +1,12 @@
-#tree{
-  float:left;
-}
-.left,.right,.root{
+#tree,.left,.right,.root{
   display:inline-block;
   border:1px solid #666;
 }
 #tree,.left,.right{
   padding:10px;
+}
+.left{
+  margin-right:10px;
 }
 .root{
   width:20px;
